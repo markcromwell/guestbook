@@ -1,16 +1,5 @@
-"""
-GUESTBOOK — FastAPI application.
+"""Thin entrypoint for the GUESTBOOK application."""
 
-Conventions (enforced by forge_new_program bootstrap):
-  - GET /health — no auth, returns {"status": "ok"}
-  - All routes under routes/ as APIRouter
-  - Tests in scripts/test_unit.py
-"""
-from fastapi import FastAPI
+from guestbook.app import app
 
-app = FastAPI(title="GUESTBOOK", version="0.1.0")
-
-
-@app.get("/health")
-def health():
-    return {"status": "ok", "service": "guestbook"}
+__all__ = ["app"]

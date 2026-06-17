@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guestbook</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 40rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 0.25rem;
+      padding: 0.5rem;
+      font: inherit;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font: inherit;
+      cursor: pointer;
+    }
+    .error {
+      color: #b00020;
+      background: #fde8eb;
+      border: 1px solid #f5c2c7;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    .entries {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+    .entry {
+      border-top: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .entry-name {
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+    }
+    .entry-message {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .entry-meta {
+      margin: 0.5rem 0 0;
+      font-size: 0.875rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guestbook</h1>
+
+  {% if error %}
+  <div class="error" role="alert">{{ error }}</div>
+  {% endif %}
+
+  <form method="post" action="/">
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" maxlength="50" value="{{ name }}" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" maxlength="500" required>{{ message }}</textarea>
+
+    <button type="submit">Sign the guestbook</button>
+  </form>
+
+  <ul class="entries">
+    {% for entry in entries %}
+    <li class="entry">
+      <p class="entry-name">{{ entry.name }}</p>
+      <p class="entry-message">{{ entry.message }}</p>
+      <p class="entry-meta">{{ entry.created_at }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
