@@ -1,0 +1,8 @@
+services:
+  guestbook:
+    build: .
+    ports:
+      - "8765:8765"
+    env_file:
+      - .env
+    restart: unless-stopped
