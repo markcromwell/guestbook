@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Smoke Test",
+    "message": "Hello from scripts/smoke.py",
+    "created_at": "2026-06-17T02:02:33.407350+00:00"
+  },
+  {
+    "id": 2,
+    "name": "Earlier Visitor",
+    "message": "Earlier smoke entry",
+    "created_at": "2026-06-17T02:02:41.255608+00:00"
+  },
+  {
+    "id": 3,
+    "name": "Smoke Test",
+    "message": "Hello from scripts/smoke.py",
+    "created_at": "2026-06-17T02:02:41.260425+00:00"
+  }
+]
